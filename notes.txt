@@ -1,0 +1,40 @@
+Traditional infrastructure:
+    - file a ticket
+    - so else pull ticket, log in to admin console, point and click to provision for that piece of infrastructure
+Now: (i) cloud environment -> API-driven, (ii) higher elasticity i.e. resources live days/weeks -> need to file thousands of tickets
+-> infrastructure as code -> can automate "filing process" +  transparent documentation -> main values:
+1. versioning
+2. reusability
+3. automation 
+
+no IaC: just use virtual infrastructure's web interface/GUI/CLI 
+IaC: infrastructure (CPUs, memory, disk, firewalls, etc. ) defined as code within definition files 
+
+Key features:
+1. high-level config language that is human-readable
+2. generate execution plans: describe what it will do and asks for approval before making any changes 
+3. build resources graph & create/modify non-dependent resources in parallel
+
+Terraform plugins interact with cloud platforms via their APIs
+Providers: define individual units of infrastructure as resources 
+-> compose resources from different providers into reusable Terraform modules 
+Terraform: declarative -> describe the end-state of your infrastructure 
+(providers automatically calculate dependencies between resources to create/destroy in correct order)
+-> differ from procedural: requires step-by-step instruction to perform tasks
+
+To deploy infrastructure with Terraform:
+1. Scope: identify the infrastructure of your project 
+2. Author: write the config for your infrastructure
+3. Initialise: install the plugins Terraform needed to manage the infrastructure:
+    terraform init
+4. Plan: preview the changes Terraform will make to match your config
+5. Apply: make the planned changes :
+    terraform apply 
+(6.) Destroy: terraform destroy
+
+Track your infrastructure: through state file 
+
+AWS:
+
+Install AWS CLI:
+https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
